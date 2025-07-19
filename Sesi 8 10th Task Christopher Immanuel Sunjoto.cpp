@@ -3,10 +3,10 @@
 
 int main() {
     char minat[50];
-    float nilaiMatematika, nilaiPemrograman;
+    float nilaiMatematika, nilaiPemrograman, nilaiDatabase, nilaiJaringan;
 
-    printf("===== Program Penentuan Streaming CS =====\n");
-    printf("Masukkan minat Anda (AI / Web / Jaringan / Game): ");
+    printf("===== Program Rekomendasi Streaming CS BINUS =====\n");
+    printf("Masukkan minat Anda (SE / IS / NT / DB / IM): ");
     scanf("%s", minat);
 
     printf("Masukkan nilai Matematika (0 - 100): ");
@@ -15,31 +15,46 @@ int main() {
     printf("Masukkan nilai Pemrograman (0 - 100): ");
     scanf("%f", &nilaiPemrograman);
 
-    printf("\n--- Rekomendasi Streaming ---\n");
+    printf("Masukkan nilai Database (0 - 100): ");
+    scanf("%f", &nilaiDatabase);
 
-    // Menentukan streaming berdasarkan minat dan nilai
-    if (strcmp(minat, "AI") == 0) {
+    printf("Masukkan nilai Jaringan (0 - 100): ");
+    scanf("%f", &nilaiJaringan);
+
+    printf("\n--- Rekomendasi Streaming Anda ---\n");
+
+    if (strcmp(minat, "SE") == 0) {
+        if (nilaiPemrograman >= 70)
+            printf("Direkomendasikan: Software Engineering\n");
+        else
+            printf("Perlu meningkatkan kemampuan coding untuk SE.\n");
+
+    } else if (strcmp(minat, "IS") == 0) {
         if (nilaiMatematika >= 75 && nilaiPemrograman >= 70)
-            printf("Direkomendasikan: Streaming Artificial Intelligence\n");
+            printf("Direkomendasikan: Intelligence System\n");
         else
-            printf("Perlu peningkatan nilai untuk masuk AI.\n");
-    } else if (strcmp(minat, "Web") == 0) {
+            printf("Perlu meningkatkan Matematika dan Pemrograman untuk IS.\n");
+
+    } else if (strcmp(minat, "NT") == 0) {
+        if (nilaiJaringan >= 70)
+            printf("Direkomendasikan: Network Technology\n");
+        else
+            printf("Perlu memperkuat logika dan networking dasar.\n");
+
+    } else if (strcmp(minat, "DB") == 0) {
+        if (nilaiDatabase >= 70)
+            printf("Direkomendasikan: Database Technology\n");
+        else
+            printf("Perlu menguasai konsep basis data lebih baik.\n");
+
+    } else if (strcmp(minat, "IM") == 0) {
         if (nilaiPemrograman >= 65)
-            printf("Direkomendasikan: Streaming Web Development\n");
+            printf("Direkomendasikan: Interactive Multimedia\n");
         else
-            printf("Perlu belajar logika dan praktik pemrograman lebih lanjut.\n");
-    } else if (strcmp(minat, "Jaringan") == 0) {
-        if (nilaiMatematika >= 60)
-            printf("Direkomendasikan: Streaming Jaringan Komputer\n");
-        else
-            printf("Perlu penguatan dasar logika & sistem.\n");
-    } else if (strcmp(minat, "Game") == 0) {
-        if (nilaiPemrograman >= 75)
-            printf("Direkomendasikan: Streaming Game Development\n");
-        else
-            printf("Perlu latihan coding lebih lanjut untuk Game Dev.\n");
+            printf("Perlu eksplorasi skill multimedia dan pemrograman dasar.\n");
+
     } else {
-        printf("Minat tidak dikenali. Silakan pilih dari: AI / Web / Jaringan / Game\n");
+        printf("Minat tidak dikenali. Gunakan SE/IS/NT/DB/IM\n");
     }
 
     return 0;
